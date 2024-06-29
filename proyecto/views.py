@@ -9,17 +9,20 @@ def index(request):
 
     return render(request, 'proyecto/inicio.html', context)
 
+
 def login(request):
 
     context={}
 
     return render(request, 'proyecto/login.html', context)
 
+
 def register(request):
 
     context={}
 
     return render(request, 'proyecto/register.html', context)
+
 
 def libro1(request):
 
