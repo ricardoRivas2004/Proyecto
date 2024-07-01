@@ -41,3 +41,8 @@ def libro3(request):
     context={}
 
     return render(request, 'proyecto/libro3.html', context)
+
+def portadas(request):
+    context={}
+
+    return render(request, 'proyecto/portadas.html', context)

@@ -7,7 +7,7 @@
 }
 p{
 	margin-top: 10px;
-	font-size: 13px;
+	font-size: 20px;
 	text-align: justify;
 }
 .container, .book-content{
@@ -60,15 +60,57 @@ p{
 	border-bottom-right-radius: 3px;
 }
 #portada{
-	background: url("{% static 'img/css-libro.jpg' %}" );
+	background: url("https://pictures.abebooks.com/inventory/22902980057.jpg");
 }
 #portada-back{
-	background: url("{% static 'img/css-libro.jpg' %}" );
+	background: url("https://m.media-amazon.com/images/I/41c+Tg5C6gS.jpg");
 }
 #portada, #portada-back{
 	background-size: 100% 100%;
 }
+.extras{
 
+	margin-top: 150px;
+
+
+}
+
+.contenedor-imagen {
+	display: flex;
+	justify-content:left; 
+	align-items: flex-start; 
+	gap: 10px; 
+  }
+  
+  .item {
+	text-align: center; 
+  }
+  
+  .item h5 {
+	margin-bottom: 10px; /* Espacio inferior entre el título y la imagen */
+	font-family: "Margarine",sans-serif;
+	width: 400px;
+	font-style: normal;
+	color:aliceblue;
+  }
+  
+  .item img {
+	width: 250px;
+	height: 350px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+
+.face-front img{
+
+	width:100%;
+	height: 600px;
+	
+	
+
+
+}
 /* Clases que se agregaran con Javascript */
 
 .trnsf{
