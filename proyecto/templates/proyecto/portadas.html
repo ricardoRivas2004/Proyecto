@@ -31,10 +31,10 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="inicio.html">Home</a>
+                <a class="nav-link" aria-current="page" href="{% url 'inicio' %}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
+                <a class="nav-link" href="{% url 'portadas' %}">Libros</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Pricing</a>
@@ -99,7 +99,7 @@
             <a href="">Click aquí para ingresar a la página del libro</a>
         </div>
         <div class="book" id="portada3">
-            <img src="https://imagessl0.casadellibro.com/a/l/t0/80/9788420482880.jpg" alt="Portada del Libro 3">
+            <img src="https://th.bing.com/th/id/OIP.ZitPk3NYynCIKBr91HYQAAHaLG?rs=1&pid=ImgDetMain" alt="Portada del Libro 3">
             <a href="">Click aquí para ingresar a la página del libro</a>
         </div>
 
@@ -141,5 +141,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" 
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script src="{% static 'js/portadas.js' %}"></script>
+    <script src="{% static 'js/fondo.js' %}"></script>
 </body>
 </html>

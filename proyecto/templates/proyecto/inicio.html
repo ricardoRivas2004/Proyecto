@@ -16,8 +16,9 @@
     <link rel="stylesheet" href="{% static 'css/fondo.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Lilita+One&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Lilita+One&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
 
 
   </head>
@@ -36,10 +37,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="inicio.html">Home</a>
+              <a class="nav-link" aria-current="page" href="{% url 'inicio' %}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
+              <a class="nav-link" href="{% url 'portadas' %}">Libros</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Pricing</a>
@@ -73,24 +74,24 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             
-            <img src="{% static 'img\html_3.jpg' %}" class="d-block w-100" alt="hola" >
+            <img src="https://imagessl0.casadellibro.com/a/l/t0/80/9788420482880.jpg" class="d-block w-100" alt="hola" >
             <div class="carousel-caption d-none d-md-block">
-              <h5>¿Qué es HTML?</h5>
-              <p><a href="libro1.html">Link para ir aquí</a></p>
+              <h5 id="titulo_carrusel">Charlie Y La Fabrica De Chocolates</h5>
+              <p><a id="ir" href="">Click Para Ir</a></p>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="{% static 'img/css-libro.jpg' %}" class="d-block w-100" alt="...">
+            <img src="https://lagunadelibros.files.wordpress.com/2014/01/portada-los-juegos-del-hambre.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h5>CSS</h5>
-              <p><a href="libro2.html">Link para ir aquí</a></p>
+              <h5 id="titulo_carrusel">Los Juegos Del Hambre</h5>
+              <p><a id="ir" href="libro2.html">Click Para Ir</a></p>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="{% static 'img/pagina_web_libro.jpg' %}" class="d-block w-100" alt="...">
+            <img src="https://th.bing.com/th/id/OIP.ZitPk3NYynCIKBr91HYQAAHaLG?rs=1&pid=ImgDetMain" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h5>Crea tu página web</h5>
-              <p><a href="libro3.html">Link para ir aquí</a></p>
+              <h5 id="titulo_carrusel">El Viejo Y El Mar</h5>
+              <p><a id="ir" href="libro3.html">Click Para Ir</a></p>
             </div>
           </div>
         </div>
@@ -102,11 +103,63 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
+
       </div>
+        <div class="nosotros">
+          <h1>Acerca de Nosotros</h1>
+          <p>¡Bienvenido a nuestra biblioteca virtual dedicada a la lectura y el disfrute de los libros clásicos y contemporáneos! En nuestro sitio, creemos en el poder transformador de la lectura y queremos facilitarte el acceso a historias que inspiran, enseñan y entretienen.
+            <br>
+            En TimeToRead, nuestra misión es promover la lectura como una herramienta esencial para el crecimiento personal y cultural. Queremos fomentar el amor por los libros al ofrecer una amplia selección de obras literarias icónicas y populares, disponibles para que las descargues y disfrutes en cualquier momento y lugar.         
+          </p>
+          <h3>¿Cómo funciona?</h3>
+          <p><b>Explora y Descubre:</b> Navega por nuestra colección de libros que incluye clásicos como Harry Potter y la Piedra Filosofal de J.K. Rowling y Charlie y la Fábrica de Chocolate de Roald Dahl, entre otros favoritos de todos los tiempos.<br>
+
+            <b>Descarga y Disfruta:</b> Una vez que encuentres un libro que te interese, simplemente haz clic en el enlace de descarga para obtener tu propia copia digital y sumérgete en su fascinante historia.<br>
+            
+            <b>de Lectores:</b> Únete a nuestra comunidad de lectores apasionados. Comparte tus experiencias, recomienda libros y participa en discusiones sobre tus historias favoritas.</p>
+          <h3>Nuestro compromiso</h3>
+          <p>
+            Nos comprometemos a proporcionarte un acceso fácil y gratuito a una variedad de libros que enriquecerán tu vida y ampliarán tus horizontes. Creemos en la importancia de la educación y el entretenimiento a través de la lectura, y estamos aquí para apoyarte en tu viaje literario.</p>
+        </div>
+      
+
+
+
+<br>
+
+
 
      
+<div class="Lista">
+ 
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#librosModal">
+      Click para ver todos los libros disponibles
+  </button>
 
-    
+  <!-- Modal -->
+  <div class="modal fade" id="librosModal" tabindex="-1" aria-labelledby="librosModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="librosModalLabel">Libros Disponibles</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <ul>
+                      {% for libro in libros %}
+                          <li>{{ libro.nombre }} - {{ libro.id_genero.genero }}</li>
+                      {% endfor %}
+                  </ul>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
 
         
 
@@ -117,7 +170,11 @@
     
     
     
-    
+  {% block content %}
+  {% endblock %}
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
@@ -126,6 +183,6 @@
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" 
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-
+    <script src="{% static 'js/fondo.js' %}"></script>
 </body>
 </html>

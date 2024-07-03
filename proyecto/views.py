@@ -1,12 +1,11 @@
 from django.shortcuts import render
-
+from .models import Genero, Libro
 # Create your views here.
 
 
 def index(request):
-
-    context={}
-
+    libros= Libro.objects.all()
+    context={"libros":libros}
     return render(request, 'proyecto/inicio.html', context)
 
 
@@ -46,3 +45,4 @@ def portadas(request):
     context={}
 
     return render(request, 'proyecto/portadas.html', context)
+
