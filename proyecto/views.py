@@ -6,10 +6,14 @@ from django.contrib.auth.decorators import login_required
 from .forms import RegistroForm  # Importa el formulario
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required, user_passes_test
+
 # Create your views here.
 
+def is_admin_or_staff(user):
+    return user.is_superuser or user.is_staff
 
-@login_required
+
 def index(request):
     libros= Libro.objects.all()
     context={"libros":libros}
@@ -43,12 +47,14 @@ def portadas(request):
 
     return render(request, 'proyecto/portadas.html', context)
 
+@user_passes_test(is_admin_or_staff)
 @login_required
 def crud(request):
     libros = Libro.objects.all()
     context = {'libros': libros}
     return render(request, 'proyecto/libro_list.html', context)
 
+@user_passes_test(is_admin_or_staff)
 @login_required
 def librosAdd(request):
     if request.method is not "POST":
@@ -89,7 +95,7 @@ def libros_del(request,pk):
         context = {'libros': libros, 'mensaje': mensaje}
         return render (request, 'proyecto/libro_list.html', context)
     
-
+@user_passes_test(is_admin_or_staff)
 @login_required
 def libros_findEdit(request,pk):
     if pk != "":
@@ -103,6 +109,7 @@ def libros_findEdit(request,pk):
             context={ 'mensaje': "Error, id no existe..."}
             return render (request, 'proyecto/libro_list.html', context)
 
+@user_passes_test(is_admin_or_staff)
 @login_required      
 def librosUpdate(request):
     if request.method == "POST":
@@ -128,7 +135,7 @@ def librosUpdate(request):
         return render(request, 'proyecto/libro_list.html', context)
 
 
-@login_required
+
 def registro(request):
     if request.method == "POST":
         form = RegistroForm(request.POST)

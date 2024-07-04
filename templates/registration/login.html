@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% load static %}
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/login.css' %}" rel="stylesheet">
     <title>Login</title>
 </head>
 <body>
@@ -18,8 +21,14 @@
                         <form action="" method="POST">
                             {% csrf_token %}
                             {{ form.as_p }}
-                            <button type="submit" class="btn btn-primary btn-block">LOGIN</button>
-                        </form>
+                            <button type="submit" class="btn btn-primary btn-block">Login</button><br>
+                            <h6>¿No tienes cuenta?</h6>
+                        </form> 
+                        <div class="nav-item">
+                        
+                            <a class="btn btn-primary btn-block" href="{% url 'register' %}">Registrarme</a>
+                          </li>
+                        </div>
                     </div>
                 </div>
             </div>
