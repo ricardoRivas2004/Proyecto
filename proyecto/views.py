@@ -140,5 +140,6 @@ def registro(request):
             login(request, user)
             messages.success(request, f"Account created for {username}!")
             return redirect("inicio")  # redireccion a la pagina de inicio :)
+    else:
         form = RegistroForm()
     return render(request, "registration/register.html", {"form": form})
