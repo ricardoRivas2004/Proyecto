@@ -15,7 +15,7 @@ function cambiarFondo() {
 cambiarFondo();
 
 
-setInterval(cambiarFondo, 60000); //tiempo en mlsegundos
+setInterval(cambiarFondo, 10000); //tiempo en mlsegundos
 
 
 

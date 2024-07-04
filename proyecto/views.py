@@ -84,7 +84,7 @@ def libros_del(request,pk):
         context = {'libros': libros, 'mensaje': mensaje}
         return render (request, 'proyecto/libro_list.html', context) 
     except:
-        mensaje = "Error, id no existe..."
+        mensaje = "No hay libros disponibles..."
         libros = Libro.objects.all()
         context = {'libros': libros, 'mensaje': mensaje}
         return render (request, 'proyecto/libro_list.html', context)
