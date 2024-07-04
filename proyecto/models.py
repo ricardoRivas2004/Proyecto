@@ -3,9 +3,8 @@ from django.db import models
 # Create your models here.
 
 class Libro(models.Model):
-    libro_id = models.AutoField(primary_key=True)  
-    nombre          = models.CharField(max_length=30)
-    fecha_publicado = models.DateField(blank=False, null=False)
+    nombre          = models.CharField(primary_key=True, max_length=60)
+    fecha           = models.DateField(blank=False, null=False)
     id_genero       = models.ForeignKey('genero',on_delete=models.CASCADE, db_column='idGenero')
     activo          = models.IntegerField() 
 

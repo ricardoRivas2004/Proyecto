@@ -57,14 +57,57 @@
     </nav>
     
 
-    
+    <div class="editar_datos">
+      <h1>editar datos libro</h1>
 
-        
+      <button type="button">
+        <a href="{% url 'librosAdd' %}">Agregar</a>
+      </button>
 
+    </div>
+
+        <div id="id_mensaje">
+
+          {% if mensaje %}
+            {{mensaje}}
+          {% endif %}
+
+  </div>
     
     
-    
-    
+    <table>
+      {% if libros %}
+        {% for x in libros %}
+       
+      <td>
+        <strong>Nombre:</strong> {{ x.nombre }}<br>
+        <strong>Género:</strong> {{ x.id_genero.genero }}<br>
+        <strong>Fecha:</strong> {{ x.fecha }}<br>
+
+      
+              <br>
+            <th> <a href="{% url 'libro_del' pk=x.nombre %}">ELIMINAR</a>
+            <th> <a href="{% url 'libros_findEdit' pk=x.nombre %}">Modificar</a>
+
+            </tr>
+          
+          {% endfor %}
+        {% endif %}
+
+    </table>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/l.8.3/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("#id_mensaje").delay(2000).fadeOut("slow");
+
+      });
+    </script>
+
+
+            
+            
+     
     
     
     
