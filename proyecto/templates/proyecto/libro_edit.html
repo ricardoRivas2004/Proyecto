@@ -62,7 +62,7 @@
             <h2>Formulario Actualizar Datos</h2><br>
             <form action="{% url 'librosUpdate'%}" method="POST">
                 {% csrf_token %}
-                <pre>Nombre:        <input type="text" name="nombre" value="{{libro.nombre}}"></pre>
+                <pre>Nombre:        <input type="text" name="nombre" value="{{libro.nombre}}" readonly></pre>
                 <pre>Fecha:         <input type="date" name="fecha" value="{{libro.fecha|date:'Y-m-d'}}"></pre>
                 <pre>Genero:        <select type="text" name="genero">
                     {% for genero in generos %}

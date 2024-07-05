@@ -10,8 +10,6 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 
 # Create your views here.
 
-def is_admin_or_staff(user):
-    return user.is_superuser or user.is_staff
 
 
 def index(request):
@@ -47,17 +45,15 @@ def portadas(request):
 
     return render(request, 'proyecto/portadas.html', context)
 
-@user_passes_test(is_admin_or_staff)
 @login_required
 def crud(request):
     libros = Libro.objects.all()
     context = {'libros': libros}
     return render(request, 'proyecto/libro_list.html', context)
 
-@user_passes_test(is_admin_or_staff)
 @login_required
 def librosAdd(request):
-    if request.method is not "POST":
+    if request.method != "POST":
         generos=Genero.objects.all()
         context={'generos':generos}
         return render(request, 'proyecto/libro_add.html', context)
@@ -95,7 +91,6 @@ def libros_del(request,pk):
         context = {'libros': libros, 'mensaje': mensaje}
         return render (request, 'proyecto/libro_list.html', context)
     
-@user_passes_test(is_admin_or_staff)
 @login_required
 def libros_findEdit(request,pk):
     if pk != "":
@@ -109,7 +104,7 @@ def libros_findEdit(request,pk):
             context={ 'mensaje': "Error, id no existe..."}
             return render (request, 'proyecto/libro_list.html', context)
 
-@user_passes_test(is_admin_or_staff)
+
 @login_required      
 def librosUpdate(request):
     if request.method == "POST":
