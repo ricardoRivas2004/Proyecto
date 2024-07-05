@@ -68,3 +68,46 @@
 
 
 }
+/* alerta de agregado correctamente*/
+.custom-alert-container {
+    display: flex;
+    justify-content: center;
+}
+
+.custom-alert {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.alert-success {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fafafa;
+    background-color: #e6c2c2;
+    border-color: #e6c3c3;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.alert {
+    animation: fadeIn 1s ease-in-out;
+}
+
+#agregar{
+
+    border-radius: 10px;
+
+}
+.editar_datos{
+
+    font-family: "Lilita One", sans-serif;
+    color: rgb(228, 228, 228);
+
+}

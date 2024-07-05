@@ -71,16 +71,23 @@
                     <option value="{{genero.id_genero}}">{{genero.genero}}</option> 
                 {% endfor %} 
             </select></pre>
+            <pre>Categoria: <select name="categoria">
+              <option value="Adultos">Adultos</option>
+              <option value="Niños">Niños</option>
+              <option value="Para todos">Para todos</option>
+          </select></pre>
             <input type="submit" name="opcion" value="Agregar">
 
         </form> <br><br>
         <a href="{% url 'crud' %}">Volver </a>
         <br>
-    <div id="idMensajes">
-        {% if mensaje %}
-        {{mensaje}}
-        {% endif %}
-    </div>
+        <div id="idMensajes" class="custom-alert-container">
+          {% if mensaje %}
+          <div class="custom-alert alert alert-success" role="alert">
+              {{ mensaje }}
+          </div>
+          {% endif %}
+      </div>
 </div>
 
 

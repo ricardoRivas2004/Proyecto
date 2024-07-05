@@ -63,12 +63,14 @@ def librosAdd(request):
         nombre=request.POST["nombre"]
         fecha=request.POST["fecha"]
         genero=request.POST["genero"]
+        categoria=request.POST["categoria"]
         activo="1"
 
         objGenero=Genero.objects.get(id_genero = genero)
         obj=Libro.objects.create(nombre=nombre,
                                  fecha=fecha,
                                  id_genero=objGenero,
+                                 categoria=categoria,
                                  activo=1 )
         obj.save()
         context={'mensaje':"Ok, datos grabados..."}
