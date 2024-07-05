@@ -1,5 +1,4 @@
 
-
 *{
 	padding: 0;
 	margin: 0;
@@ -7,7 +6,7 @@
 }
 p{
 	margin-top: 10px;
-	font-size: 13px;
+	font-size: 20px;
 	text-align: justify;
 }
 .container, .book-content{
@@ -44,11 +43,18 @@ p{
 	padding: 15px;
 	box-sizing: border-box;
 	overflow: hidden;
+	border-radius: 10px;
 }
 .face-front{
 	box-shadow: inset 3px 0px 20px -7px black;
 	border-top-left-radius: 3px;
 	border-bottom-left-radius: 3px;
+	
+	
+}
+.face-front img{
+	border-radius: 5px; /* Bordecitos del carrusel*/
+	
 }
 .face-back{
 	position: absolute;
@@ -60,15 +66,60 @@ p{
 	border-bottom-right-radius: 3px;
 }
 #portada{
-	background: url('../img/css-libro.jpg');
+
+	background: url("https://imagessl0.casadellibro.com/a/l/t0/80/9788420482880.jpg");
 }
 #portada-back{
-	background: url('../img/html_3.jpg');
+	background: url("https://images-na.ssl-images-amazon.com/images/I/91Pm-pKvpHL.jpg");
 }
 #portada, #portada-back{
+	border-radius: 10px; /* Bordecitos del carrusel*/
+
 	background-size: 100% 100%;
 }
+.extras{
 
+	margin-top: 150px;
+
+
+}
+
+.contenedor-imagen {
+	display: flex;
+	justify-content:left; 
+	align-items: flex-start; 
+	gap: 10px; 
+  }
+  
+  .item {
+	text-align: center; 
+  }
+  
+  .item h5 {
+	margin-bottom: 10px; /* Espacio inferior entre el título y la imagen */
+	font-family: "Margarine",sans-serif;
+	width: 400px;
+	font-style: normal;
+	color:aliceblue;
+  }
+  
+  .item img {
+	width: 250px;
+	height: 350px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+
+.face-front img{
+
+	width:100%;
+	height: 600px;
+	
+	
+
+
+}
 /* Clases que se agregaran con Javascript */
 
 .trnsf{
@@ -79,6 +130,7 @@ p{
 }
 
 /* @media para hacer el texto responsivo */
+
 
 @media screen and (max-width: 800px){
 	p{

@@ -4,19 +4,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TimeToRead</title>
+
+
+    {% load static %}
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/carrusel.css"> 
-    <link rel="stylesheet" href="css/fondoTitulos.css">
-    <link rel="stylesheet" href="css/logo.css">
-    <link rel="stylesheet" href="css/letras.css">
+    <link rel="stylesheet" href="{% static 'css/libro2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fondoTitulos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fondo.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/logo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/letras.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Lilita+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/texto_imagenes.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/libro2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Margarine&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{% static 'css/texto_imagenes.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
 
 
   </head>
@@ -25,39 +33,43 @@
   <!-- interfaz de arriba (Menu) -->
   <body>
     
-    <nav class="navbar navbar-expand-lg bg-transparent" >
+    <nav class="navbar navbar-expand-lg bg-transparent">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
-        <img src="img/logo1.png">
+          <img src="{% static 'img/logo1.png' %}">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="inicio.html">Home</a>
+              <a class="nav-link" aria-current="page" href="{% url 'inicio' %}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
+              <a class="nav-link" href="{% url 'portadas' %}">Libros</a>
+            </li>
+      
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'crud' %}">Gestion</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">{{ user.username }}</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="login.html">Login/Register</a>
-            </li>
-            <li class="titulo">
-              <h1 id="timetoread">¡Time To Read!</h1>
-              
-            
+              <!-- En tu template HTML, agrega un formulario para logout -->
+              <form id="logout-form" action="{% url 'logout' %}" method="post" style="display: none;">
+                {% csrf_token %}
+              </form>
+              <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar Sesión</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
     
-
     
     <br>
     <br>
@@ -70,77 +82,81 @@
           <div class="book">
               <div class="face-front" id="portada"></div>
               <div class="face-back" id="trsf">
-                  <h1>Title 1</h1>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam laborum voluptatibus eaque repudiandae ullam necessitatibus, dolor ad expedita, eum praesentium vitae! Voluptate in itaque modi consequatur. Aliquid odit quisquam quibusdam!</p>
+                  <h1>Charlie y la fábrica de chocolate Roald Dahl</h1>
+                  <p>
+                    Esta historia muestra cómo a veces una decisión puede transformar radicalmente toda una vida... Y esto es justo lo que sucede a Charlie. En este maravilloso relato, Roald Dahl realiza una de sus mejores críticas sobre el comportamiento humano.
+                    Un niño que vive en la pobreza, en una casa de sólo dos habitaciones, con sus padres y abuelos, recibe siempre por su cumpleaños una sola tableta de chocolate. Junto a su casa, una gran fábrica de chocolate sortea una visita guiada y cinco tabletas a quien encuentre el premio en uno de los envoltorios. 
+                    Este libro ha sido llevado al cine en varias ocasiones con gran éxito.
+                    <br>
+                    <br>
+                    Año publicación:
+                    1964
+                    <br>
+                    <br>
+                    Temas:
+                    Infantil y juvenil      
+                    </p>
+                    
               </div>
           </div>
 
           <div class="book">
               <div class="face-front">
-                  <h1>Title 2</h1>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint perferendis nemo blanditiis impedit aut soluta quia illum deserunt, vero quod ducimus placeat voluptate quidem error sequi, earum eos minima in!</p>
+                  <p>Si deseas leer este libro puedes descargarlo aquí en: <br>
+                  <a download="Coraline" href="{% static 'archivos/coraline.pdf' %}">PDF</a> ó <a download="Coraline" href="{% static 'archivos/Coraline - Neil Gaiman.EPUB' %}">EPUB</a> 
+                    </p>
+                    <br>
+                    <img src="https://th.bing.com/th/id/OIP.x783_wwkDeFpA6zBgnxYDQHaLW?rs=1&pid=ImgDetMain">
               </div>
               <div class="face-back">
-                  <h1>Title 3</h1>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam laborum voluptatibus eaque repudiandae ullam necessitatibus, dolor ad expedita, eum praesentium vitae! Voluptate in itaque modi consequatur. Aliquid odit quisquam quibusdam!</p>
-              </div>
-          </div>
-
-          <div class="book">
-              <div class="face-front">
-                  <h1>Title 4</h1>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint perferendis nemo blanditiis impedit aut soluta quia illum deserunt, vero quod ducimus placeat voluptate quidem error sequi, earum eos minima in!</p>
-              </div>
-              <div class="face-back">
-                  <h1>Title 5</h1>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam laborum voluptatibus eaque repudiandae ullam necessitatibus, dolor ad expedita, eum praesentium vitae! Voluptate in itaque modi consequatur. Aliquid odit quisquam quibusdam!</p>
-              </div>
-          </div>
-
-          <div class="book">
-              <div class="face-front">
-                  <h1>Title 6</h1>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint perferendis nemo blanditiis impedit aut soluta quia illum deserunt, vero quod ducimus placeat voluptate quidem error sequi, earum eos minima in!</p>
+                  
+                  <p>
+                    </p>
               </div>
               <div class="face-back" id="portada-back">
               </div>
           </div>
+
+
+
+      
       </div>
   </div>
   
+  <div class="extras">
 
+    <div class="contenedor-imagen">
+      <div class="item">
+        <h5>Golden Ticket</h5>
+        <img src="https://th.bing.com/th/id/R.bda310a7da578312609bfbc43814923e?rik=bCxKMAnHWJMrrA&riu=http%3a%2f%2fwww.chileparaninos.gob.cl%2f639%2farticles-336978_imagen_00.jpg&ehk=FTaUmkQw2UGzPals2cmpAbf08MnFb5w1BUpTvdx7svM%3d&risl=&pid=ImgRaw&r=0">
+      </div>
+  
+      <div class="item">
+        <h5>Charlie</h5>
+        <img src="https://www.puffinschools.co.uk/wp-content/uploads/2019/02/thumbnail_charlieandthechocolatefactory_992x558.jpg" alt="Coraline / The Cat">
+      </div>
 
+      <div class="item">
+        <h5>...</h5>
+        <img src="https://th.bing.com/th/id/OIP.jBQQYtIh1cejZD_J8lcTgQHaHa?w=1200&h=1200&rs=1&pid=ImgDetMain" alt="">
+      </div>
+      
+    </div>
+  </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
+  
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
   integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
   integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" 
   integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-  <script src="js/libro.js"></script>
-
-
-
+  <script src="{% static 'js/libro.js' %}"></script>
+  <script src="{% static 'js/fondo.js' %}"></script>
 
   </body>
+
 
 </html>
