@@ -111,3 +111,9 @@
     color: rgb(228, 228, 228);
 
 }
+#id_mensaje{
+    font-family: "Lilita One", sans-serif;
+    color: rgb(228, 228, 228); 
+    -webkit-text-stroke: 1px rgb(0, 0, 0);
+
+}

@@ -77,6 +77,7 @@
     
     
 <table id="tabla">
+  
   {% if libros %}
     {% for x in libros %}
       <tr>
@@ -84,7 +85,7 @@
           <strong>Nombre:</strong> {{ x.nombre }}<br>
           <strong>Género:</strong> {{ x.id_genero.genero }}<br>
           <strong>Categoria:</strong> {{ x.categoria }}<br>
-          <strong>Fecha:</strong> {{ x.fecha }}<br>
+          <strong>Fecha:</strong> {{ x.fecha }}
         </td>
         <td>
           <b><a href="{% url 'libro_del' pk=x.nombre %}">Eliminar</a><br>
