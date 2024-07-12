@@ -40,6 +40,41 @@ def libro3(request):
     return render(request, 'proyecto/libro3.html', context)
 
 @login_required
+def libro4(request):
+
+    context={}
+
+    return render(request, 'proyecto/libro4.html', context)
+
+@login_required
+def libro5(request):
+
+    context={}
+
+    return render(request, 'proyecto/libro5.html', context)
+
+@login_required
+def libro6(request):
+
+    context={}
+
+    return render(request, 'proyecto/libro6.html', context)
+
+@login_required
+def libro7(request):
+
+    context={}
+
+    return render(request, 'proyecto/libro7.html', context)
+
+@login_required
+def libro8(request):
+
+    context={}
+
+    return render(request, 'proyecto/libro8.html', context)
+
+@login_required
 def portadas(request):
     context={}
 

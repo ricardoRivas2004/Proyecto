@@ -1,0 +1,138 @@
+*{
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+}
+p{
+	margin-top: 10px;
+	font-size: 20px;
+	text-align: justify;
+}
+.container, .book-content{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.container{
+	width: 100%;
+	
+	
+}
+.book-content{
+	width: 70%;
+	min-width: 350px;
+	max-width: 950px;
+	height: 730px;
+	position: relative;
+	perspective: 1000px;
+	transition: 1s;
+}
+.book{
+	position: absolute;
+	width: 70%;
+	height: 100%;
+	transition: 1s;
+	transform-style: preserve-3d;
+	transform-origin: left; 
+}
+.face-front, .face-back{
+	width: 100%;
+	height: 100%;
+	background: white;
+	padding: 15px;
+	box-sizing: border-box;
+	overflow: hidden;
+	border-radius: 10px;
+}
+.face-front{
+	box-shadow: inset 3px 0px 20px -7px black;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	
+	
+}
+.face-front img{
+	border-radius: 5px; /* Bordecitos del carrusel*/
+	
+}
+.face-back{
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translateZ(-1px) rotateY(180deg);
+	box-shadow: inset -3px 1px 20px -7px black;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+#portada{
+
+	background: url("https://2.bp.blogspot.com/-QTrN1GQHp4A/WvlvmktqNNI/AAAAAAAALjU/aLUhXKcoogw2wQkndFdJ2e9V1b2xkmFigCLcBGAs/s1600/1.jpg");
+}
+#portada-back{
+	background: url("https://2.bp.blogspot.com/-QTrN1GQHp4A/WvlvmktqNNI/AAAAAAAALjU/aLUhXKcoogw2wQkndFdJ2e9V1b2xkmFigCLcBGAs/s1600/1.jpg");
+}
+#portada, #portada-back{
+	border-radius: 10px; /* Bordecitos del carrusel*/
+
+	background-size: 100% 100%;
+}
+.extras{
+
+	margin-top: 150px;
+
+
+}
+
+.contenedor-imagen {
+	display: flex;
+	justify-content:left; 
+	align-items: flex-start; 
+	gap: 10px; 
+  }
+  
+  .item {
+	text-align: center; 
+  }
+  
+  .item h5 {
+	margin-bottom: 10px; /* Espacio inferior entre el título y la imagen */
+	font-family: "Margarine",sans-serif;
+	width: 400px;
+	font-style: normal;
+	color:aliceblue;
+  }
+  
+  .item img {
+	width: 250px;
+	height: 350px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+
+.face-front img{
+
+	width:100%;
+	height: 600px;
+	
+	
+
+
+}
+/* Clases que se agregaran con Javascript */
+
+.trnsf{
+	transform: translateX(80px);
+}
+.trnsf-reset{
+	transform: translateX(0px);
+}
+
+/* @media para hacer el texto responsivo */
+
+
+@media screen and (max-width: 800px){
+	p{
+		font-size: 12px;
+	}
+}
